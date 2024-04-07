@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Slide Verification</title>
+    <style>
+        /* Converted CSS code */
+        .slide-track {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            position: relative;
+            width: 300px;
+            height: 32px;
+            background-color: #e8e8e8;
+        }
+
+        .slide-track .slide-block {
+            z-index: 999;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 45px;
+            height: 32px;
+            line-height: 32px;
+            text-align: center;
+            color: #afafaf;
+            background: #fff;
+            border: 1px solid #ccc;
+            cursor: move;
+        }
+
+        .slide-track .slide-block::after {
+            content: '»';
+        }
+
+        .slide-track .slide-block.success::after {
+            content: '√';
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 18px;
+            height: 18px;
+            line-height: 18px;
+            color: #fff;
+            border-radius: 50%;
+            background: #7cc13c;
+        }
+
+        .slide-track .slide-text {
+            position: absolute;
+            left: 45px;
+            right: 0;
+            z-index: 99;
+            margin: 0;
+            line-height: 32px;
+            font-size: 14px;
+            text-align: center;
+            color: #5f5f5f;
+        }
+
+        .slide-track .slide-bg {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 45px;
+            background: #7cc13c;
+        }
+                html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        #content {
+            height: 100%;
+            width : 100%;
+            overflow: auto; /* 如果内容超出屏幕，显示滚动条 */
+        }
+
+    </style>
+</head>
+
+<body style="display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0;">
+
+    <body>
+        <div id="slide-container"></div>
+        <div id="content" style="display: none;">
+            <!-- The HTML content you want to display after slide verification -->
+            <html lang="zh">
+
+            <head>
+                <title>安全验证</title>
+            
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            
+                <!-- Fonts -->
+                <link rel="dns-prefetch" href="//fonts.gstatic.com">
+                <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,900" rel="stylesheet">
+            
+                <style>
+                    html {
+                        line-height: 1.15;
+                        -ms-text-size-adjust: 100%;
+                        -webkit-text-size-adjust: 100%;
+                    }
+            
+                    body {
+                        margin: 0;
+                    }
+            
+                    header,
+                    nav,
+                    section {
+                        display: block;
+                    }
+            
+                    figcaption,
+                    main {
+                        display: block;
+                    }
+            
+                    a {
+                        background-color: transparent;
+                        -webkit-text-decoration-skip: objects;
+                    }
+            
+                    strong {
+                        font-weight: inherit;
+                    }
+            
+                    strong {
+                        font-weight: bolder;
+                    }
+            
+                    code {
+                        font-family: monospace, monospace;
+                        font-size: 1em;
+                    }
+            
+                    dfn {
+                        font-style: italic;
+                    }
+            
+                    svg:not(:root) {
+                        overflow: hidden;
+                    }
+            
+                    button,
+                    input {
+                        font-family: sans-serif;
+                        font-size: 100%;
+                        line-height: 1.15;
+                        margin: 0;
+                    }
+            
+                    button,
+                    input {
+                        overflow: visible;
+                    }
+            
+                    button {
+                        text-transform: none;
+                    }
+            
+                    button,
+                    html [type="button"],
+                    [type="reset"],
+                    [type="submit"] {
+                        -webkit-appearance: button;
+                    }
+            
+                    button::-moz-focus-inner,
+                    [type="button"]::-moz-focus-inner,
+                    [type="reset"]::-moz-focus-inner,
+                    [type="submit"]::-moz-focus-inner {
+                        border-style: none;
+                        padding: 0;
+                    }
+            
+                    button:-moz-focusring,
+                    [type="button"]:-moz-focusring,
+                    [type="reset"]:-moz-focusring,
+                    [type="submit"]:-moz-focusring {
+                        outline: 1px dotted ButtonText;
+                    }
+            
+                    legend {
+                        -webkit-box-sizing: border-box;
+                        box-sizing: border-box;
+                        color: inherit;
+                        display: table;
+                        max-width: 100%;
+                        padding: 0;
+                        white-space: normal;
+                    }
+            
+                    [type="checkbox"],
+                    [type="radio"] {
+                        -webkit-box-sizing: border-box;
+                        box-sizing: border-box;
+                        padding: 0;
+                    }
+            
+                    [type="number"]::-webkit-inner-spin-button,
+                    [type="number"]::-webkit-outer-spin-button {
+                        height: auto;
+                    }
+            
+                    [type="search"] {
+                        -webkit-appearance: textfield;
+                        outline-offset: -2px;
+                    }
+            
+                    [type="search"]::-webkit-search-cancel-button,
+                    [type="search"]::-webkit-search-decoration {
+                        -webkit-appearance: none;
+                    }
+            
+                    ::-webkit-file-upload-button {
+                        -webkit-appearance: button;
+                        font: inherit;
+                    }
+            
+                    menu {
+                        display: block;
+                    }
+            
+                    canvas {
+                        display: inline-block;
+                    }
+            
+                    template {
+                        display: none;
+                    }
+            
+                    [hidden] {
+                        display: none;
+                    }
+            
+                    html {
+                        -webkit-box-sizing: border-box;
+                        box-sizing: border-box;
+                        font-family: sans-serif;
+                    }
+            
+                    *,
+                    *::before,
+                    *::after {
+                        -webkit-box-sizing: inherit;
+                        box-sizing: inherit;
+                    }
+            
+                    p {
+                        margin: 5px 0px;
+                    }
+            
+                    button {
+                        background: transparent;
+                        padding: 0;
+                    }
+            
+                    button:focus {
+                        outline: 1px dotted;
+                        outline: 5px auto -webkit-focus-ring-color;
+                    }
+            
+                    *,
+                    *::before,
+                    *::after {
+                        border-width: 0;
+                        border-style: solid;
+                        border-color: #dae1e7;
+                    }
+            
+                    button,
+                    [type="button"],
+                    [type="reset"],
+                    [type="submit"] {
+                        border-radius: 0;
+                    }
+            
+                    button,
+                    input {
+                        font-family: inherit;
+                    }
+            
+                    input::-webkit-input-placeholder {
+                        color: inherit;
+                        opacity: .5;
+                    }
+            
+                    input:-ms-input-placeholder {
+                        color: inherit;
+                        opacity: .5;
+                    }
+            
+                    input::-ms-input-placeholder {
+                        color: inherit;
+                        opacity: .5;
+                    }
+            
+                    input::placeholder {
+                        color: inherit;
+                        opacity: .5;
+                    }
+            
+                    button,
+                    [role=button] {
+                        cursor: pointer;
+                    }
+            
+                    h1 {
+                        font-weight: 400;
+                    }
+            
+                    .bg-transparent {
+                        background-color: transparent;
+                    }
+            
+                    .bg-white {
+                        background-color: #fff;
+                    }
+            
+                    .bg-teal-light {
+                        background-color: #64d5ca;
+                    }
+            
+                    .bg-blue-dark {
+                        background-color: #2779bd;
+                    }
+            
+                    .bg-indigo-light {
+                        background-color: #7886d7;
+                    }
+            
+                    .bg-grey-light {
+                        background-color: #ddd;
+                    }
+            
+                    .bg-no-repeat {
+                        background-repeat: no-repeat;
+                    }
+            
+                    .bg-cover {
+                        background-size: cover;
+                    }
+            
+                    .border-grey-light {
+                        border-color: #dae1e7;
+                    }
+            
+                    .hover\:border-grey:hover {
+                        border-color: #b8c2cc;
+                    }
+            
+                    .rounded-lg {
+                        border-radius: .5rem;
+                    }
+            
+                    .border-2 {
+                        border-width: 2px;
+                    }
+            
+                    .hidden {
+                        display: none;
+                    }
+            
+                    .flex {
+                        display: -webkit-box;
+                        display: -ms-flexbox;
+                        display: flex;
+                    }
+            
+                    .items-center {
+                        -webkit-box-align: center;
+                        -ms-flex-align: center;
+                        align-items: center;
+                    }
+            
+                    .justify-center {
+                        -webkit-box-pack: center;
+                        -ms-flex-pack: center;
+                        justify-content: center;
+                    }
+            
+                    .font-sans {
+                        font-family: 'Montserrat', sans-serif;
+                    }
+            
+                    .font-light {
+                        font-weight: 300;
+                    }
+            
+                    .font-bold {
+                        font-weight: 700;
+                    }
+            
+                    .font-black {
+                        font-weight: 900;
+                    }
+            
+                    .h-1 {
+                        height: .25rem;
+                    }
+            
+                    .h-2 {
+                        height: .18rem;
+                    }
+            
+                    .leading-normal {
+                        line-height: 1.5;
+                    }
+            
+                    .m-8 {
+                        margin: 2rem;
+                    }
+            
+                    .my-3 {
+                        margin-top: .75rem;
+                        margin-bottom: .75rem;
+                    }
+            
+                    .mb-8 {
+                        margin-bottom: 2rem;
+                    }
+            
+                    .mb-7 {
+                        margin-bottom: 1.6rem;
+                    }
+            
+                    .max-w-sm {
+                        max-width: 40rem;
+                    }
+            
+                    .min-h-screen {
+                        min-height: 100vh;
+                    }
+            
+                    .py-3 {
+                        padding-top: .75rem;
+                        padding-bottom: .75rem;
+                    }
+            
+                    .px-6 {
+                        padding-left: 1.5rem;
+                        padding-right: 1.5rem;
+                    }
+            
+                    .pb-full {
+                        padding-bottom: 100%;
+                    }
+            
+                    .absolute {
+                        position: absolute;
+                    }
+            
+                    .relative {
+                        position: relative;
+                    }
+            
+                    .pin {
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        left: 0;
+                    }
+            
+                    .text-black {
+                        color: #22292f;
+                    }
+            
+                    .text-grey-darkest {
+                        color: #3d4852;
+                    }
+            
+                    .text-grey-darker {
+                        color: #606f7b;
+                    }
+            
+                    .text-2xl {
+                        font-size: 1.5rem;
+                    }
+            
+                    .text-5xl {
+                        font-size: 2rem;
+                    }
+            
+                    .uppercase {
+                        text-transform: uppercase;
+                    }
+            
+                    .antialiased {
+                        -webkit-font-smoothing: antialiased;
+                        -moz-osx-font-smoothing: grayscale;
+                    }
+            
+                    .tracking-wide {
+                        letter-spacing: .05em;
+                    }
+            
+                    .w-16 {
+                        width: 4rem;
+                    }
+            
+                    .w-full {
+                        width: 100%;
+                    }
+            
+                    @media (min-width: 768px) {
+                        .md\:bg-left {
+                            background-position: left;
+                        }
+            
+                        .md\:bg-right {
+                            background-position: right;
+                        }
+            
+                        .md\:flex {
+                            display: -webkit-box;
+                            display: -ms-flexbox;
+                            display: flex;
+                        }
+            
+                        .md\:my-6 {
+                            margin-top: 1.5rem;
+                            margin-bottom: 1rem;
+                        }
+            
+                        .md\:min-h-screen {
+                            min-height: 100vh;
+                        }
+            
+                        .md\:pb-0 {
+                            padding-bottom: 0;
+                        }
+            
+                        .md\:text-3xl {
+                            font-size: 1.875rem;
+                        }
+            
+                        .md\:text-15xl {
+                            font-size: 2rem;
+                        }
+                    }
+            
+                    @media(max-width: 767px) {
+                        .main-body {
+                            display: grid;
+                            flex-direction: column;
+                        }
+            
+                        .left-sec {
+                            order: 2;
+                            text-align: center;
+                            height: 70vh;
+                        }
+            
+                        .right-sec {
+                            order: 1;
+                            padding-bottom: unset;
+                            background-size: 100% 185% !important;
+                            background-position: center;
+                            height: 30vh;
+                        }
+            
+                        .m-8 {
+                            margin: 0.5rem 1.8rem;
+                        }
+            
+                        .content-body {
+                            max-height: 66vh;
+                            overflow-y: scroll;
+                        }
+            
+                        .text-5xl {
+                            font-size: 1.7rem;
+                        }
+            
+                        .mb-7 {
+                            margin-bottom: 1rem;
+                        }
+            
+                        h1 {
+                            font-size: 1.15rem !important;
+                        }
+            
+                        .show-mobile {
+                            display: block;
+                        }
+            
+                        .show-tablet {
+                            display: none;
+                        }
+            
+                        .left-sec {
+                            background-image: url('./1.jpg') !important;
+                        }
+                    }
+            
+                    @media(min-width: 768px) {
+                        .show-mobile {
+                            display: none;
+                        }
+            
+                        .show-tablet {
+                            display: block;
+                        }
+                    }
+            
+                    @media (max-width: 992px) and (min-width: 768px) {
+                        .md\:w-1\/2 {
+                            width: 70%;
+                        }
+            
+                        .md\:w-1\/2:last-child {
+                            width: 30%;
+                        }
+            
+                        .right-sec {
+                            background-size: unset !important;
+                        }
+            
+                        .left-sec {
+                            background-image: url('./1.jpg') !important;
+                        }
+                    }
+            
+                    @media (min-width: 992px) {
+                        .lg\:bg-center {
+                            background-position: center;
+                        }
+                    }
+            
+                    .left-sec {
+                        background-image: url('./1.jpg');
+                        background-position: bottom;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                    }
+            
+                    .left-sec p,
+                    .left-sec ul li,
+                    h1 {
+                        font-size: 12px;
+                        color: #3d3d3d;
+                        line-height: 1.35;
+                    }
+            
+                    .left-sec ul {
+                        padding-left: 1.1rem;
+                    }
+            
+                    .left-sec ul li {
+                        margin-bottom: 1rem;
+                    }
+            
+                    .left-sec ul li strong {
+                        font-weight: 600;
+                    }
+            
+                    ul.cferror_details {
+                        border-top: 2rem solid transparent;
+                        position: relative;
+                        padding-left: 0;
+                    }
+            
+                    ul.cferror_details::before {
+                        content: "";
+                        border-top: 2px solid #d3d3d3;
+                        width: 100%;
+                        top: -11px;
+                        position: absolute;
+                    }
+            
+                    ul.cferror_details li {
+                        display: inline;
+                        margin-right: 0.6rem;
+                        margin-bottom: 0.2rem;
+                        font-size: 10px;
+                    }
+            
+                    ul.cferror_details li::before {
+                        content: '•';
+                        padding-right: 6px;
+                    }
+            
+                    ul.cferror_details li:first-child::before {
+                        content: none;
+                    }
+            
+                    .left-sec p.std-text.bold {
+                        font-weight: 600;
+                    }
+            
+                    h1 {
+                        font-size: 1.21rem;
+                    }
+            
+                    .left-sec p.highlight {
+                        font-size: 14px;
+                        font-weight: 600;
+                    }
+            
+                    .sub-footer p {
+                        color: #747474;
+                    }
+            
+                    .error-text {
+                        color: #d3333e !important;
+                    }
+            
+                    .sub-footer ul li {
+                        color: #3d3d3d;
+                        font-size: 10px;
+                        display: inline;
+                        margin-left: 5px;
+                    }
+            
+                    .sub-footer ul li:first-child {
+                        margin-left: 0px
+                    }
+            
+                    .sub-footer ul li::before {
+                        content: '•';
+                        padding-right: 6px;
+                    }
+            
+                    .sub-footer ul li:first-child::before {
+                        content: none;
+                    }
+            
+                    .sub-footer ul {
+                        padding: 0;
+                    }
+            
+                    h1 {
+                        margin-bottom: 0;
+                    }
+                </style>
+                <style type="text/css">
+                    .right-sec {
+                        background-image: url('./2.jpg');
+                        background-size: 100% 100%;
+                    }
+                </style>
+            
+                <script type="text/javascript">
+                    window.onload = function runScript() {
+                        document.getElementById("domainName").innerHTML = window.location.hostname;
+                    };
+                </script>
+            </head>
+            
+            <body class="antialiased font-sans">
+                <div class="md:flex min-h-screen main-body">
+                    <div class="w-full md:w-1/2 bg-white flex items-center justify-center left-sec">
+                        <div class="max-w-sm m-8 content-body">
+                            <div class="text-black text-5xl md:text-15xl font-black">安全验证</div>
+            
+                            <p class="text-grey-darker text-2xl md:text-3xl mb-7 leading-normal">
+                            </p>
+                            <p class="sub-header">
+                            <h1>请进行人机验证以访问<span id="domainName"></span></h1>
+                            </p>
+                            <br>
+                            <div class="cf-captcha">::CAPTCHA_BOX::</div>
+                            <br>
+            
+                            <p class="highlight">为什么我要进行验证？</p>
+                            <p class="std-text">通过人机验证以证明您不是机器人，完成验证后即可访问本站</p>
+            
+                            <div class="sub-footer">
+                                <div class="w-full h-2 bg-grey-light my-3 md:my-6"></div>
+                                <ul>
+                                    <li>Cloudflare的事件ID: ::RAY_ID::</li>
+                                    <li>你的IP: ::CLIENT_IP::</li>
+                                    <li>Performance &amp; Security by Cloudflare and WAF pages made by Fusheng</li>
+                                </ul>
+                            </div>
+            
+                        </div>
+                    </div>
+            
+                    <div class="relative pb-full md:flex md:pb-0 md:min-h-screen w-full md:w-1/2 right-sec">
+                    </div>
+                </div>
+                <script>var now = new Date, hour = now.getHours(); (hour < 8 || hour > 20) && document.write("<style>.left-sec {filter: invert(85%);}</style>");</script>
+                <script>var now = new Date, hour = now.getHours(); (hour < 8 || hour > 20) && document.write("<style>.cf-captcha {filter: invert(85%);}</style>");</script>
+            
+            </body>
+            
+            </html>
+
+            <script>
+                const utils = new (class {
+                    /**
+                     * @public
+                     * @method
+                     * @name isFunction
+                     * @description 判断传入的值是否是一个函数
+                     * @param {*} value 需要检测的值
+                     * @returns {boolean}
+                     */
+                    isFunction(value) {
+                        return Object.prototype.toString.call(value) === '[object Function]'
+                    }
+
+                    /**
+                     * @public
+                     * @function
+                     * @name $
+                     * @description 获取文档中与指定选择器或选择器组匹配的第一个 HTML 元素
+                     * @param {string} selectors 包含一个或多个要匹配的选择器的 DOM 字符串
+                     * @returns {Element | null} 如果找不到匹配项，则返回 null，否则返回对应的 Element
+                     */
+                    $(selectors) {
+                        return document.querySelector(selectors)
+                    }
+
+                    /**
+                     * @private
+                     * @method
+                     * @name _h
+                     * @description 创建由 tagName 指定的 HTML 元素
+                     * @param {string} tagName 指定要创建元素类型的字符串
+                     * @param {object} propMap 可选的，包含 class 等额外配置项
+                     * @param {string} text 可选的文字节点
+                     * @returns {Element | HTMLUnknownElement} 如果 tagName 不被识别，则创建一个 HTMLUnknownElement
+                     */
+                    h(tagName, propMap = {}, text) {
+                        const ele = document.createElement(tagName)
+                        Object.keys(propMap).forEach(prop => ele.setAttribute(prop, propMap[prop]))
+                        if (text) {
+                            ele.appendChild(document.createTextNode(text))
+                        }
+                        return ele
+                    }
+
+                    /**
+                     * @public
+                     * @function
+                     * @name bindEvents
+                     * @param {string} events 一个以空格分开的字符串，指定了要绑定的事件
+                     * @param {function} handler 事件监听器
+                     * @param {Element | undefined} element 可选的，绑定事件的元素
+                     * @returns {void}
+                     */
+                    bindEvents(events, handler, element = this.$('body')) {
+                        events.split(' ').forEach(event => {
+                            element.addEventListener(event, handler, false)
+                        })
+                    }
+
+                    /**
+                     * @public
+                     * @function
+                     * @name unbindEvents
+                     * @param {string} events 一个以空格分开的字符串，指定了要取消的事件
+                     * @param {function} handler 事件监听器
+                     * @param {Element | undefined} element 可选的，取消事件的元素
+                     * @returns {void}
+                     */
+                    unbindEvents(events, handler, element = this.$('body')) {
+                        events.split(' ').forEach(event => {
+                            element.removeEventListener(event, handler, false)
+                        })
+                    }
+
+                    /**
+                     * @public
+                     * @function
+                     * @name throttle
+                     * @description 对函数进行包装，避免高频率执行损耗性能
+                     * @param {function} method 需要执行函数
+                     * @param {object} context 函数执行时的上下文环境
+                     * @param {number} delay 时间，以毫秒计
+                     * @returns {function} 包装后的函数
+                     */
+                    throttle(method, context = {}, delay = 4, ...outParams) {
+                        function withThtottle(...innerParams) {
+                            clearTimeout(context.$$tId)
+                            function throttleCore() {
+                                method.apply(context, [...outParams, ...innerParams])
+                            }
+                            throttleCore.displayName = `throttleCore(${method.name})`
+                            // eslint-disable-next-line no-param-reassign
+                            context.$$tId = setTimeout(throttleCore, delay)
+                        }
+                        withThtottle.displayName = `withThtottle(${method.name})`
+                        return withThtottle
+                    }
+                })()
+
+                /**
+                 * Class implement slide verification.
+                 * @example
+                 * new SlideUnlock().init()
+                 */
+                // eslint-disable-next-line no-unused-vars
+
+                class SlideUnlock {
+                    /**
+                     * 初始化滑块，处理配置
+                     * @param {Element} el 挂载的元素
+                     * @param {object} options 配置项
+                     */
+                    constructor(el = 'body', options = {}) {
+                        this.$el = utils.$(el)
+                        this.$$isSuccess = false
+                        this.$options = {
+                            tip: '请按住滑块，拖动到最右边',
+                            unlockText: '验证成功',
+                            duration: 500,
+                            ...options
+                        }
+                    }
+
+                    /**
+                     * @public
+                     * @method
+                     * @name init
+                     * @description 创建滑块的 DOM 结构，并添加鼠标在滑块上按下的监听器
+                     * @returns {void}
+                     */
+                    init() {
+                        this.$$root = utils.h('div', { class: 'slide-track' })
+                        this.$$bg = this.$$root.appendChild(utils.h('div', { class: 'slide-bg' }))
+                        this.$$block = this.$$root.appendChild(
+                            utils.h('div', { class: 'slide-block' })
+                        )
+                        this.$$text = this.$$root.appendChild(
+                            utils.h('p', { class: 'slide-text' }, this.$options.tip)
+                        )
+                        this.$el.insertBefore(this.$$root, this.$el.firstChild)
+                        this._bindEvents()
+                    }
+
+                    /**
+                     * @private
+                     * @method
+                     * @name _bindEvents
+                     * @description 绑定鼠标的按下和松开事件
+                     * @returns {void}
+                     */
+                    _bindEvents() {
+                        utils.bindEvents(
+                            'mousedown touchstart',
+                            (this.$$handleMouseDown = this._handleMouseDown.bind(this)),
+                            this.$$block
+                        )
+                        utils.bindEvents(
+                            'mouseup touchend',
+                            (this.$$handleMouseUp = this._handleMouseUp.bind(this)),
+                            document
+                        )
+                    }
+
+                    /**
+                     * @private
+                     * @method
+                     * @name _handleMouseDown
+                     * @description 滑块上鼠标按下的监听器，主要记录鼠标的横坐标并指定滑块滑动的监听器
+                     * @param {MouseEvent} e 一个基于 Event 的对象
+                     * @returns {void}
+                     */
+                    _handleMouseDown(e) {
+                        const eve = e || window.e
+                        const downx = eve.clientX || e.changedTouches[0].clientX
+
+                        if (e.cancelable) {
+                            e.preventDefault() // 阻止默认行为
+                        }
+
+                        if (this.$$isSuccess) {
+                            return
+                        }
+
+                        // 取消在手动滑动过程中的动画效果
+                        this.$$bg.style.transition = ''
+                        this.$$block.style.transition = ''
+
+                        utils.bindEvents(
+                            'mousemove touchmove',
+                            (this.$$handleMouseMove = utils.throttle(
+                                this._handleMouseMove,
+                                this,
+                                undefined,
+                                downx
+                            )),
+                            this.$$block
+                        )
+                    }
+
+                    /**
+                     * @private
+                     * @method
+                     * @name _handleMouseMove
+                     * @description 滑块滑动的监听器，主要更新滑块位置和背景元素的宽度
+                     * @param {MouseEvent} e 一个基于 Event 的对象
+                     * @returns {void}
+                     */
+                    _handleMouseMove(downx, e) {
+                        const info = this.$$block.getBoundingClientRect()
+                        const x = e.clientX || e.changedTouches[0].clientX
+                        const y = e.clientY
+                        const x1 = info.left
+                        const y1 = info.top
+                        const x2 = info.right
+                        const y2 = info.bottom
+                        const moveX = x - downx
+
+                        if (this.$$isSuccess) {
+                            return
+                        }
+                        if (moveX < 0) {
+                            return
+                        }
+                        if (x < x1 || x > x2 || y < y1 || y > y2) {
+                            // 当鼠标移开滑块时取消移动
+                            return
+                        }
+
+                        this.$$block.style.left = `${moveX}px`
+                        this.$$bg.style.width = `${moveX}px`
+
+                        if (moveX >= this.$$root.offsetWidth + x1 - x2) {
+                            this.$$isSuccess = true
+                            this.$$text.textContent = this.$options.unlockText
+                            this.$$text.style.cssText = `color: #fff; left: 0; right: ${this.$$block.offsetWidth}px;`
+                            this.$$block.classList.add('success')
+                            if (utils.isFunction(this.$options.cb)) {
+                                // 为了避免阻塞成功提示界面的渲染，你可以设置两百毫秒左右的延迟
+                                this.$options.cb.call(this)
+                            }
+                        }
+                    }
+
+                    /**
+                     * @private
+                     * @method
+                     * @name _handleMouseUp
+                     * @description 鼠标松开的监听器，主要用于重置
+                     * @param {MouseEvent} e 一个基于 Event 的对象
+                     * @returns {void}
+                     */
+                    _handleMouseUp() {
+                        clearTimeout(this.$$tId)
+                        utils.unbindEvents(
+                            'mousemove touchmove',
+                            this.$$handleMouseMove,
+                            this.$$block
+                        )
+
+                        if (this.$$isSuccess) {
+                            utils.unbindEvents('mouseup touchend', this.$$handleMouseUp, document)
+                            utils.unbindEvents(
+                                'mousedown touchstart',
+                                this.$$handleMouseDown,
+                                this.$$block
+                            )
+                            return
+                        }
+
+                        // 给重置过程添加动画效果
+                        this.$$bg.style.cssText = `transition: width ${this.$options.duration}ms ease; width: 0;`
+                        this.$$block.style.cssText = `transition: left ${this.$options.duration}ms ease; left: 0;`
+                    }
+
+                    /**
+                     * @public
+                     * @method
+                     * @name isSuccess
+                     * @description 返回当前滑块的状态
+                     * @returns {boolean}
+                     */
+                    isSuccess() {
+                        return this.$$isSuccess
+                    }
+
+                    /**
+                     * @public
+                     * @method
+                     * @name reset
+                     * @description 重置滑块的状态
+                     * @returns {void}
+                     */
+                    reset() {
+                        if (!this.$$isSuccess) {
+                            return
+                        }
+                        this.$$isSuccess = false
+                        this.$$bg.style.cssText = `transition: width ${this.$options.duration}ms ease; width: 0;`
+                        this.$$block.style.cssText = `transition: left ${this.$options.duration}ms ease; left: 0;`
+                        this.$$text.style.cssText = `color: #5f5f5f; left: ${this.$$block.offsetWidth}px; right: 0;`
+                        this.$$text.textContent = this.$options.tip
+                        this.$$block.classList.remove('success')
+                        this._bindEvents()
+                    }
+                }
+
+
+
+                // Initialize the slide verification
+                // Initialize the slide verification
+                // Initialize the slide verification
+                new SlideUnlock('#slide-container', {
+                    cb: function () {
+                        // Capture 'this' reference
+                        var self = this;
+                        setTimeout(() => {
+                            document.getElementById('slide-container').style.display = 'none';
+
+                            document.getElementById('content').style.display = 'block';
+                            // Hide the slide block after verification
+                        }, 200);
+                    }
+                }).init();
+
+
+            </script>
+    </body>
+
+</html>
