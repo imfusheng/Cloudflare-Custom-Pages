@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh_HK">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>出错了</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #161616;
+                color: white;
+            }
+
+            .text-red-600 {
+                color: #ff6b6b;
+            }
+
+            .border-gray-300 {
+                border-color: #4a4a4a;
+            }
+
+            .border-t-blue-600 {
+                border-top-color: #3b82f6;
+            }
+
+            .text-blue-600 {
+                color: #3b82f6;
+            }
+
+            .text-yellow-500 {
+                color: #e4af00;
+            }
+
+            .background-image {
+                background-image: url('dark.svg');
+            }
+        }
+
+        @media (prefers-color-scheme: light) {
+            body {
+                background-color: #ffffff;
+                color: black;
+            }
+
+            .background-image {
+                background-image: url('light.svg');
+            }
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        function toggleErrorMessage() {
+            const errorMessage = document.querySelector('.hidden');
+            const linkText = document.querySelector('a');
+            if (errorMessage && linkText) {
+                errorMessage.classList.toggle('hidden');
+                if (errorMessage.classList.contains('hidden')) {
+                    linkText.innerHTML = '点击显示详细错误信息';
+                }
+            } else {
+                console.error("元素未找到");
+            }
+        }
+    </script>
+    <div class="h-screen flex items-center justify-center relative">
+        <div class="relative z-20 text-center">
+            <noscript>
+                <h1 data-translate="turn_on_js" class="text-red-600">
+                    请启用 JavaScript 并刷新此页面
+                </h1>
+            </noscript>
+            <div id="cf-content">
+                <div class="mx-auto mb-4 h-12 w-12 text-yellow-500 text-5xl flex items-center justify-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="size-16">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+                    </svg>
+                </div>
+                <h1 id="main-title" data-translate="rate_limited" class="font-medium text-xl mb-4">
+                    出错了，但这并不是我们的错
+                </h1>
+                <p id="retry-later">cloudflare响应了一个100x状态码</p>
+                <p id="do-sth">由于本问题与我们无关，因此我们并无法给出解决办法</p>
+                <p id="retry-later2">请在稍后重新尝试访问</p>
+                <p><a href="#" class="text-blue-600" onclick="toggleErrorMessage()">点击显示详细错误信息</a></p>
+            </div>
+            <div class="hidden">
+                <p id="Error-Code">错误信息:::CLOUDFLARE_ERROR_1000S_BOX::</p>
+            </div>
+            <div id="no-cookie-warning" class="cookie-warning" data-translate="turn_on_cookies" style="display:none">
+                <p id="cookie-warning-text" data-translate="turn_on_cookies" class="text-red-600">请启用 Cookies 并刷新此页面</p>
+            </div>
+            <p id="redirecting-text" data-translate="redirecting" style="display:none;color:#e4af00">重定向中……</p>
+            <div class="text-sm text-gray-500 mt-8 attribution" id="attribution" data-translate="attribution">
+                <div>防护由 <a rel="noopener noreferrer" class="text-blue-600" href="https://www.cloudflare.com/" target="_blank">Cloudflare</a> 提供</div>
+                <div class="text-xs mt-4">您的IP: <span class="font-semibold font-mono">::CLIENT_IP::</span> 已被记录</div>
+                <div class="text-xs">Request ID: <code class="font-mono">::RAY_ID:: </code></div>
+            </div>
+        </div>
+        <div class="max-w-none z-10 w-full h-full absolute my-auto bg-auto bg-no-repeat bg-center background-image">
+        </div>
+    </div>
+    <script type="text/javascript">
+        (function () {
+            var a = document.getElementById('cf-content');
+            a.style.display = 'block';
+        }());
+
+        function detectLanguage() {
+            return navigator.language || navigator.userLanguage;
+        }
+
+        const translations = {
+            "en": {
+                "main-title": "System Error",
+                "retry-later": "Cloudflare has responded with a 100x status code",
+                "do-sth": "As this issue is not related to us, we are unable to provide a solution",
+                "cookie-warning-text": "Please enable Cookies and refresh this page.",
+                "retry-later2": "Please retry later",
+                "error-code": "Error Information:::CLOUDFLARE_ERROR_1000S_BOX::",
+                "attribution": '<div>Protection by <a rel="noopener noreferrer" href="https://www.cloudflare.com/" target="_blank">Cloudflare</a><div class="text-xs mt-4">Your IP: ::CLIENT_IP:: has been logged</div><div class="text-xs">Request ID: <code class="font-mono">::RAY_ID:: </code></div>'
+            },
+            "zh": {
+                "main-title": "系统错误",
+                "retry-later": "Cloudflare响应了一个100x状态码",
+                "do-sth": "由于本问题与我们无关，因此我们并无法给出解决办法",
+                "retry-later2": "请在稍后重新尝试访问",
+                "error-code": "错误信息:::CLOUDFLARE_ERROR_1000S_BOX::",
+                "cookie-warning-text": "请启用Cookies并刷新此页面。",
+                "attribution": '<div>防护由 <a rel="noopener noreferrer" class="text-blue-600" href="https://www.cloudflare.com/" target="_blank">Cloudflare</a> 提供</div><div class="text-xs mt-4">您的IP: <span class="font-semibold font-mono">::CLIENT_IP::</span> 已被记录</div><div class="text-xs">Request ID: <code class="font-mono">::RAY_ID:: </code></div>'
+            }
+        };
+
+        function applyTranslations(language) {
+            const elements = {
+                "main-title": document.getElementById("main-title"),
+                "retry-later": document.getElementById("retry-later"),
+                "do-sth": document.getElementById("do-sth"),
+                "cookie-warning-text": document.getElementById("cookie-warning-text"),
+                "attribution": document.querySelector(".attribution"),
+                "error-code": document.getElementById("Error-Code")
+            };
+
+            if (translations[language]) {
+                for (const key in elements) {
+                    elements[key].innerHTML = translations[language][key];
+                }
+            }
+        }
+
+        const language = detectLanguage().startsWith('zh') ? 'zh' : 'en';
+        applyTranslations(language);
+    </script>
+</body>
+
+</html>
