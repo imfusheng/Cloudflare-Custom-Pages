@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh_HK">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>安全检查中……</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #161616;
+                color: white;
+            }
+            .text-red-600 {
+                color: #ff6b6b;
+            }
+            .border-gray-300 {
+                border-color: #4a4a4a;
+            }
+            .border-t-blue-600 {
+                border-top-color: #3b82f6;
+            }
+            .text-blue-600 {
+                color: #3b82f6;
+            }
+            .background-image {
+                background-image: url('dark.svg');
+            }
+        }
+        @media (prefers-color-scheme: light) {
+            body {
+                background-color: #ffffff;
+                color: black;
+            }
+            .background-image {
+                background-image: url('light.svg');
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="h-screen flex items-center justify-center relative">
+        <div class="relative z-20 text-center">
+            <noscript>
+                <h1 data-translate="turn_on_js" class="text-red-600">
+                    请启用 JavaScript 并刷新此页面
+                </h1>
+            </noscript>
+            <div id="cf-content">
+                <div class="border-gray-300 mx-auto mb-4 h-12 w-12 animate-spin rounded-full border-2 border-t-blue-600"></div>
+                <h1 id="main-title" data-translate="checking_browser" class="font-medium text-xl mb-4">
+                    在访问此网站之前检查您的浏览器
+                </h1>
+                ::IM_UNDER_ATTACK_BOX::
+                                <div id="no-cookie-warning" class="cookie-warning" data-translate="turn_on_cookies" style="display:none">
+                    <p id="cookie-warning-text" data-translate="turn_on_cookies" class="text-red-600">请启用 Cookies 并刷新此页面</p>
+                </div>
+                </p>
+                <p id="redirecting-text" data-translate="redirecting" style="display:none;color:#e4af00">重定向中……</p>
+            </div>
+            <div class="text-sm text-gray-500 mt-8 attribution" id="attribution" data-translate="attribution">
+                <div>防护由 <a rel="noopener noreferrer" class="text-blue-600" href="https://www.cloudflare.com/" target="_blank">Cloudflare</a> 提供</div>
+                <div class="text-xs mt-4">您的IP: <span class="font-semibold font-mono">::CLIENT_IP::</span> 已被记录</div>
+                <div class="text-xs">
+                    Request ID: <code class="font-mono">::RAY_ID::	</code>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-none z-10 w-full h-full absolute my-auto bg-auto bg-no-repeat bg-center background-image"></div>
+    </div>
+
+    <script type="text/javascript">
+        (function(){
+            var a = document.getElementById('cf-content');
+            a.style.display = 'block';
+        }());
+
+        function detectLanguage() {
+            return navigator.language || navigator.userLanguage;
+        }
+
+        const translations = {
+            "en": {
+                "main-title": "Checking your browser before accessing this website.",
+                "cookie-warning-text": "Please enable Cookies and refresh this page.",
+                "automatic-process-text": "This process may take a few seconds to complete",
+                "attribution": '<div>Protection by <a rel="noopener noreferrer" href="https://www.cloudflare.com/" target="_blank">Cloudflare</a><div class="text-xs mt-4">Your IP: ::CLIENT_IP:: has been logged</div><div class="text-xs">Request ID: <code class="font-mono">::RAY_ID::	</code></div>'
+            },
+            "zh": {
+                "main-title": "在访问此网站之前检查您的浏览器。",
+                "cookie-warning-text": "请启用Cookies并刷新此页面。",
+                "attribution": '<div>防护由 <a rel="noopener noreferrer" class="text-blue-600" href="https://www.cloudflare.com/" target="_blank">Cloudflare</a> 提供</div><div class="text-xs mt-4">您的IP: <span class="font-semibold font-mono">::CLIENT_IP::</span> 已被记录</div><div class="text-xs">Request ID: <code class="font-mono">::RAY_ID::	</code></div>'
+            }
+        };
+
+        function applyTranslations(language) {
+            const elements = {
+                "main-title": document.getElementById("main-title"),
+                "cookie-warning-text": document.getElementById("cookie-warning-text"),
+                "automatic-process-text": document.getElementById("automatic-process-text"),
+                "wait-text": document.getElementById("wait-text"),
+                "redirecting-text": document.getElementById("redirecting-text"),
+                "attribution": document.querySelector(".attribution")
+            };
+
+            if (translations[language]) {
+                for (const key in elements) {
+                    elements[key].innerHTML = translations[language][key];
+                }
+            }
+        }
+
+        const language = detectLanguage().startsWith('zh') ? 'zh' : 'en';
+        applyTranslations(language);
+    </script>
+</body>
+</html>
